@@ -1,0 +1,11 @@
+name: stack-pycaret-full
+channels:
+  - defaults
+  - anaconda
+  - conda-forge
+dependencies:
+  - python=3.9
+  - python-dotenv
+  - pip:
+    - pycaret[full]==3.0.0rc6
+    - minio

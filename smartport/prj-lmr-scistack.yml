@@ -1,0 +1,34 @@
+name: prj-lmr-scistack
+channels:
+  - defaults
+  - anaconda
+  - conda-forge
+  - plotly
+dependencies:
+  - python=3.9
+  - pip
+  - numpy
+  - matplotlib
+  - scipy
+  - pandas=1.4.3
+  - scikit-learn
+  - ipykernel
+  - pytest
+  - seaborn
+  - statsmodels
+  - graphviz
+  - pydot
+  - hydra-core
+  - plotly_express
+  - pyproj
+  - pip:
+    - ema-workbench==2.0.9
+    - pysd==1.9.1
+    - networkx==2.7.1
+    - pyairtable==1.1.0
+    - pre-commit==2.19.0
+    - black==22.3.0
+    - pytest==7.1.1
+    - pylint== 2.14.5
+    - h5py==3.7.0
+    - ismember==1.0.1
