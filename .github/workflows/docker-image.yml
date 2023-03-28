@@ -42,8 +42,8 @@ jobs:
       env:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: $IMAGE_${{ steps.date.outputs.date }} #${{ github.sha }}
-      working-directory: ./$REPOSITORY.
+      working-directory: ./$REPOSITORY
       run: |
-        echo  $REPOSITORY.
-        docker build --file Dockerfile.$IMAGE-t $REGISTRY/$REPOSITORY.:$IMAGE_TAG .
-        docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+        echo  $REPOSITORY $PWD
+#        docker build --file Dockerfile.$IMAGE-t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+#        docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
