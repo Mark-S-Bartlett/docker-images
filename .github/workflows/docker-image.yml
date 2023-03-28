@@ -39,11 +39,11 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Build, tag, and push docker image to Amazon ECR
-      working-directory: ./"$REPOSITORY"
       env:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: $IMAGE_${{ steps.date.outputs.date }} #${{ github.sha }}
+      working-directory: ./$REPOSITORY.
       run: |
-        echo "Hello" $PWD
-        docker build --file Dockerfile.$IMAGE-t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+        echo  $REPOSITORY.
+        docker build --file Dockerfile.$IMAGE-t $REGISTRY/$REPOSITORY.:$IMAGE_TAG .
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
