@@ -32,7 +32,7 @@ jobs:
       with:
         role-to-assume: arn:aws:iam::557286492042:role/AWS-Github-Actions
         role-duration-seconds: 7200 # the ttl of the session, in seconds.
-        aws-region: aws-region-1 # use your region here.
+        aws-region: us-east-1 # use your region here.
     
     - name: Login to Amazon ECR
       id: login-ecr
