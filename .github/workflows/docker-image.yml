@@ -37,9 +37,9 @@ jobs:
     - name: Build, tag, and push docker image to Amazon ECR
       env:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_TAG: $IMAGE_${{ steps.date.outputs.date }} #${{ github.sha }}
+        IMAGE_TAG: $IMAGE_$(date +'%Y-%m-%d') #${{ github.sha }}
 #      working-directory: ./$REPOSITORY
       run: |
-        echo  $REPOSITORY $PWD ${{ github.workspace }} $(date +'%Y-%m-%d')
+        echo  $REPOSITORY $PWD ${{ github.workspace }} $(date +'%Y-%m-%d') $IMAGE_TAG
 #        docker build --file Dockerfile.$IMAGE-t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
 #        docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
