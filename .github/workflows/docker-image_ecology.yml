@@ -1,4 +1,4 @@
-name: Docker Image Smartport
+name: Docker Image Ecology
 #Ref: https://github.com/aws-actions
 
 env:
