@@ -2,7 +2,7 @@ name: Docker Image Ecology
 #Ref: https://github.com/aws-actions
 
 env:
-  REPOSITORY: ecology
+  REPOSITORY: smartport
   IMAGE: geospatial
   DATE: $(date +'%Y-%m-%d')
 
