@@ -1,5 +1,5 @@
 name: Docker Image Smartport
-#Ref https://github.com/aws-actions
+#Ref: https://github.com/aws-actions
 
 env:
   REPOSITORY: smartport
@@ -24,6 +24,7 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v3
 
+#Ref: https://benoitboure.com/securely-access-your-aws-resources-from-github-actions
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:

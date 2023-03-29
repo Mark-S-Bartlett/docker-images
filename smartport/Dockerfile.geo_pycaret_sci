@@ -90,7 +90,9 @@ RUN "${CONDA_DIR}/envs/${conda_env}/bin/python" -m ipykernel install --user --na
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
-RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyterlab-plotly
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyterlab-plotly && \
+    pip install ipykernel && \
+    python -m ipykernel install --sys-prefix
 
 #USER root
 
