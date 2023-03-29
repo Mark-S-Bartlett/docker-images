@@ -1,0 +1,53 @@
+name: Docker Image Smartport
+#Ref: https://github.com/aws-actions
+
+env:
+  REPOSITORY: ecology
+  IMAGE: geospatial
+  DATE: $(date +'%Y-%m-%d')
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - ${{ env.REPOSITORY }}/**
+
+jobs:
+  build:
+    name: Build Image
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write # required to use OIDC authentication
+      contents: read # required to checkout the code from the repo
+
+    steps:
+
+    - name: Check out code
+      uses: actions/checkout@v3
+
+#Ref: https://benoitboure.com/securely-access-your-aws-resources-from-github-actions
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        role-to-assume: arn:aws:iam::557286492042:role/AWS-Github-Actions
+        role-duration-seconds: 7000 # the ttl of the session, in seconds. Needs to be less than the duration allowed for the role, configured on IAM manager in AWS
+        aws-region: us-east-1 # use your region here.
+    
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+# Concatenating variables https://github.com/GuillaumeFalourd/poc-github-actions/blob/main/.github/workflows/53-concatenation.yml
+    - name: Concatenate values to environment file
+      run: |
+        echo "IMAGE_TAG=${{env.IMAGE}}_${{env.DATE}}" >> $GITHUB_ENV
+    
+    - name: Build, tag, and push docker image to Amazon ECR
+      env:
+        REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+      working-directory: ./${{env.REPOSITORY}} #${{ github.sha }}
+      run: |
+        echo  $REPOSITORY $PWD ${{ github.workspace }} $IMAGE_TAG
+        docker build -f Dockerfile.${{ env.IMAGE }} -t $REGISTRY/${{ env.REPOSITORY }}:${{ env.IMAGE_TAG}} . 
+        docker push $REGISTRY/${{ env.REPOSITORY }}:${{ env.IMAGE_TAG }}

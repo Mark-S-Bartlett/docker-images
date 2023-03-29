@@ -1,5 +1,0 @@
-#Start from a core stack version
-FROM  jupyter/base-notebook:2023-01-02
-
-LABEL authors = "Mark Bartlett"
-LABEL maintainer = "bartlett <mbartlett@thewaterinstitute.org>"

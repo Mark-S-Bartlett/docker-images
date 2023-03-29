@@ -1,0 +1,16 @@
+name: base
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - geopandas
+  - geospatial
+  - ca-certificates
+  - certifi
+  - openssl
+  - scikit-learn
+  - feature_engine
+  - umap-learn
+  - pip
+  - pip:
+    - scikit-learn-extra==0.2.0 

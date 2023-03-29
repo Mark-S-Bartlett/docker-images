@@ -1,4 +1,4 @@
-name: stack-pycaret-full
+name: stack-pycaret
 channels:
   - defaults
   - anaconda

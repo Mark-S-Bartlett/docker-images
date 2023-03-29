@@ -1,4 +1,4 @@
-name: stack-geocube
+name: stack-geo
 channels:
   - defaults
   - anaconda

@@ -1,4 +1,4 @@
-name: prj-lmr-scistack
+name: stack-sci
 channels:
   - defaults
   - anaconda
