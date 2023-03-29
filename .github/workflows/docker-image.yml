@@ -3,7 +3,7 @@ name: Docker Image Smartport
 
 env:
   REPOSITORY: smartport
-  IMAGE: test
+  IMAGE: geo_pycaret_sci
   DATE: $(date +'%Y-%m-%d')
 
 on:
@@ -28,7 +28,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v2
       with:
         role-to-assume: arn:aws:iam::557286492042:role/AWS-Github-Actions
-        role-duration-seconds: 900 # the ttl of the session, in seconds. Needs to be less than the duration allowed for the role, configured on IAM manager in AWS
+        role-duration-seconds: 7000 # the ttl of the session, in seconds. Needs to be less than the duration allowed for the role, configured on IAM manager in AWS
         aws-region: us-east-1 # use your region here.
     
     - name: Login to Amazon ECR
