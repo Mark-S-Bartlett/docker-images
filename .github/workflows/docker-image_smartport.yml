@@ -3,7 +3,7 @@ name: Docker Image Smartport
 
 env:
   REPOSITORY: smartport
-  IMAGE: geo_pycaret_sci
+  IMAGE: geo_pycaret
   DATE: $(date +'%Y-%m-%d')
 
 on:
