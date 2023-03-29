@@ -25,7 +25,6 @@ COPY --chown=${NB_UID}:${NB_GID} "geospatial.yml" "/home/${NB_USER}/tmp/"
 #    fix-permissions "/home/${NB_USER}"
 
 ARG conda_env=geospatial
-ARG py_ver=3.9
 
 COPY --chown=${NB_UID}:${NB_GID} "${conda_env}.yml" "/home/${NB_USER}/tmp/"
 RUN cd "/home/${NB_USER}/tmp/" && \
