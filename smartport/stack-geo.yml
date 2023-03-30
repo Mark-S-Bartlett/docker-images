@@ -17,6 +17,9 @@ dependencies:
   - s3fs>=2023.3.0
   - html5lib
   - beautifulsoup4
+  - xmltodict
+  - backports
+  - timezonefinder
   - pip
   - pip:
     - kaleido==0.1.*
