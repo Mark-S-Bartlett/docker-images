@@ -17,7 +17,9 @@ jobs:
       contents: read # required to checkout the code from the repo
 
     steps:
-
+    
+    - name: Check out code
+      uses: actions/checkout@v3
 
 #Ref: https://benoitboure.com/securely-access-your-aws-resources-from-github-actions
     - name: Configure AWS credentials
