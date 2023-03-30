@@ -1,0 +1,14 @@
+{
+    "DomainId": "d-auaxs5cyx09d",
+    "DefaultUserSettings": {
+        "KernelGatewayAppSettings": {
+            "CustomImages": [
+                {
+                "ImageName": "geospatial",
+                "ImageVersionNumber": 1,
+                "AppImageConfigName": "app-image-config-1680122053104"
+                }
+            ]
+        }
+    }
+}

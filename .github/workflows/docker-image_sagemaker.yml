@@ -1,0 +1,33 @@
+name: Docker Image Smartport
+#Ref: https://github.com/aws-actions
+
+env:
+  REPOSITORY: smartport
+
+on: workflow_dispatch
+
+
+jobs:
+  build:
+    name: Fix Sagemaker
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write # required to use OIDC authentication
+      contents: read # required to checkout the code from the repo
+
+    steps:
+
+
+#Ref: https://benoitboure.com/securely-access-your-aws-resources-from-github-actions
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        role-to-assume: arn:aws:iam::557286492042:role/AWS-Github-Actions
+        role-duration-seconds: 7000 # the ttl of the session, in seconds. Needs to be less than the duration allowed for the role, configured on IAM manager in AWS
+        aws-region: us-east-1 # use your region here.
+    
+
+    - name: Fix Sagemaker
+      working-directory: ./${{env.REPOSITORY}} #${{ github.sha }}
+      run: aws --region us-east-1 sagemaker update-domain --cli-input-json file://update-domain-input.json
