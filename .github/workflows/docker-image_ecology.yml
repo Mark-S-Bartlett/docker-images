@@ -6,11 +6,12 @@ env:
   IMAGE: geospatial
   DATE: $(date +'%Y-%m-%d')
 
-on:
-  push:
-    branches: [ "main" ]
-    paths:
-      - ${{ env.REPOSITORY }}/**
+on: workflow_dispatch
+#on:
+#  push:
+#    branches: [ "main" ]
+#    paths:
+#      - ${{ env.REPOSITORY }}/**
 
 jobs:
   build:
