@@ -17,7 +17,7 @@ LABEL maintainer = "bartlett <mbartlett@thewaterinstitute.org>"
 #    fix-permissions "${CONDA_DIR}" && \
 #    fix-permissions "/home/${NB_USER}"
 
-Install pycaret environment
+#Install pycaret environment
 ARG conda_env=stack-pycaret
 ARG py_ver=3.9
 
