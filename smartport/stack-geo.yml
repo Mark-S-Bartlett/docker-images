@@ -17,6 +17,8 @@ dependencies:
   - s3fs>=2023.3.0
   - html5lib
   - beautifulsoup4
+  - pyarrow
+  - xmltodict
   - pip
   - pip:
     - kaleido==0.1.*
